@@ -1,0 +1,61 @@
+body {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 460px;
+    border: 3px solid rgb(80, 78, 77);
+    border-radius: 10px;
+    padding: 10px;
+
+    background-color:dimgrey;
+  }
+
+.container {
+  overflow:hidden;
+  margin: 10px;
+  padding: 10px;
+  background-color: black;
+
+}
+
+.heater {
+  padding: 50px;
+
+  border:1px solid #cccccc;
+  display: table-cell;
+  background-color: grey;
+}
+
+.window {
+  padding: 50px;
+
+  border:1px solid #cccccc;
+  display: table-cell;
+  background-color: grey;
+}
+
+.mode {
+  display: table-row;
+}
+
+.mode h3 {
+  text-align: center;
+}
+
+.mode button {
+  display: inline-block;
+  margin: auto;
+}
+
+.buttons {
+  margin-left: 20px;
+}
+
+.status {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #393939;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}

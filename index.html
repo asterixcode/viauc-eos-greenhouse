@@ -5,15 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Greenhouse Project</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        // Establishing connection with server
-        var socket = io.connect(); /* global io */
-    </script>
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css">
 
-    
-</body>
+</head>
+
+<body>
+    <div class="container">
+
+      <div class="mode">
+        <div class="heater">
+          <h3>Heater</h3>
+          <p class="status" id="heaterStatus">Status:</p>
+          <button type="button" onclick="changeHeaterState(1)">ON</button>
+          <button type="button" onclick="changeHeaterState(0)">OFF</button>
+        </div>
+
+        <br>
+
+        <div class="window">
+          <h3>Window</h3>
+          <p class="status" id="windowStatus">Status:</p>
+          <button type="button" onclick="changeWindowState(1)">OPEN</button>
+          <button type="button" onclick="changeWindowState(0)">CLOSED</button>
+        </div>
+      </div>
+
+    </div>
+  </body>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="index.js"></script>
 </html>
