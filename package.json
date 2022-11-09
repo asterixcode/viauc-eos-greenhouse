@@ -1,0 +1,13 @@
+{
+  "name": "greenhouse-project",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Lucas Krause Saldanha",
+  "license": "",
+  "dependencies": {
+    "ip": "^1.1.8",
+    "socket.io": "^4.5.3"
+  }
+}
