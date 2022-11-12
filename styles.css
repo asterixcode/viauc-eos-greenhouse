@@ -5,50 +5,35 @@ body {
     width: 460px;
     border: 3px solid rgb(80, 78, 77);
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
 
-    background-color:dimgrey;
+    background-color:rgb(0, 0, 0);
   }
 
 .container {
-  overflow:hidden;
-  margin: 10px;
+  overflow: hidden;
   padding: 10px;
-  background-color: black;
+  background-color: rgb(203, 203, 203);
+}
 
+.control {
+  display: flex;
 }
 
 .heater {
-  padding: 50px;
-
-  border:1px solid #cccccc;
-  display: table-cell;
-  background-color: grey;
-}
-
-.window {
-  padding: 50px;
-
-  border:1px solid #cccccc;
-  display: table-cell;
-  background-color: grey;
-}
-
-.mode {
-  display: table-row;
-}
-
-.mode h3 {
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  border: 1px solid #cccccc;
+  background-color: grey; 
   text-align: center;
 }
 
-.mode button {
-  display: inline-block;
-  margin: auto;
-}
-
-.buttons {
-  margin-left: 20px;
+.window {
+  flex: 1; /* additionally, equal width */
+  padding: 1em;
+  border: 1px solid #cccccc;
+  background-color: grey; 
+  text-align: center;
 }
 
 .status {
@@ -58,4 +43,19 @@ body {
   color: white;
   text-align: center;
   border-radius: 5px;
+}
+
+.read {
+  padding: 20px;
+  margin: 15px;
+  border:1px solid #cccccc;
+  display: auto;
+  background-color: rgb(229, 207, 207);
+}
+
+.setlight {
+  padding: 1em;
+  border:1px solid #cccccc;
+  display: auto;
+  background-color: grey; 
 }
