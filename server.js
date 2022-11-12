@@ -5,7 +5,10 @@ var path = require('path')
 var ip = require("ip")
 var myip = ip.address()
 var bonescript = require('bonescript')
-var manager = require('./manager.js')
+// var manager = require('./manager.js')
+
+const exec = require('child_process').execSync;
+
 
 // Create a variable called led, which refers to P9_14
 var led = "USR0";
@@ -70,10 +73,9 @@ function handleChangeHeaterState(data) {
     var newData = JSON.parse(data);
     console.log("HEATER = " + newData.state);
     // turns the HEATER ON or OFF
-    var result = exec("sudo ./toggleHeater " + newState)
+    var result = exec("sudo ./toggleHeater " + newData.state)
     
     // manager.handleHeater(newData.state);
-
     // bonescript.digitalWrite(led, newData.state);
 }
 
