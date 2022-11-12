@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Greenhouse Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="container">
-
-      <div class="mode">
+      <div class="control">
         <div class="heater">
-          <h3>Heater</h3>
+          <h2>Heater</h2>
           <p class="status" id="heaterStatus">Status:</p>
           <button type="button" onclick="changeHeaterState(1)">ON</button>
           <button type="button" onclick="changeHeaterState(0)">OFF</button>
         </div>
 
-        <br>
-
         <div class="window">
-          <h3>Window</h3>
+          <h2>Window</h2>
           <p class="status" id="windowStatus">Status:</p>
           <button type="button" onclick="changeWindowState(1)">OPEN</button>
           <button type="button" onclick="changeWindowState(0)">CLOSED</button>
         </div>
       </div>
 
+      <div class="read">
+        <h2>Temperature</h2>
+        <p id="tempStatus">Status:</p>
+
+        <h2>Humidity</h2>
+        <p id="humStatus">Status:</p>
+
+        <h2>Light level</h2>
+        <p id="lightStatus">Status:</p>
+      </div>
+
+      <div class="setlight">
+        <h2>Led light level</h2>
+        <p id="ledLightStatus">Status:</p>
+        <input type="text" id="lightLevel" name="fname" /><br /><br />
+        <button type="button" onclick="changeStateLight();">Set value</button>
+      </div>
+      
     </div>
   </body>
 
