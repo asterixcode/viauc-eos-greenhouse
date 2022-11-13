@@ -4,13 +4,14 @@ body {
     margin-bottom: 20px;
     width: 460px;
     border: 3px solid rgb(80, 78, 77);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding: 5px;
 
     background-color:rgb(0, 0, 0);
   }
 
 .container {
+  text-align: center;
   overflow: hidden;
   padding: 10px;
   background-color: rgb(203, 203, 203);
@@ -46,9 +47,10 @@ body {
 }
 
 .read {
+  margin-top: 15px ;
+  margin-bottom: 15px;
   padding: 20px;
-  margin: 15px;
-  border:1px solid #cccccc;
+  border:1px solid #5f5959;
   display: auto;
   background-color: rgb(229, 207, 207);
 }
@@ -58,4 +60,25 @@ body {
   border:1px solid #cccccc;
   display: auto;
   background-color: grey; 
+}
+
+.read h2 {
+  text-align: center;
+}
+
+.readings {
+  display: flex;
+}
+
+.readings p {
+  padding-left: 1em;
+  padding-right: 1em;
+  margin-left: 1em;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #5f5959;
+  padding-top: 1em;
 }
