@@ -10,6 +10,9 @@
 
   <body>
     <div class="container">
+      <header>
+        <h1>Greenhouse Project</h1>
+      </header>
       <div class="control">
         <div class="heater">
           <h2>Heater</h2>
@@ -27,23 +30,28 @@
       </div>
 
       <div class="read">
-        <h2>Temperature</h2>
-        <p id="tempStatus">Status:</p>
-
-        <h2>Humidity</h2>
-        <p id="humStatus">Status:</p>
-
-        <h2>Light level</h2>
-        <p id="lightStatus">Status:</p>
+        <div class="readings">
+          <h2>Temperature:</h2>
+          <p class="status" id="temperatureStatus">Status:</p>
+        </div>
+        <div class="readings">
+          <h2>Humidity:</h2>
+          <p class="status" id="humStatus">Status:</p>
+        </div>
+        <div class="readings">
+          <h2>Light level:</h2>
+          <p class="status" id="lightStatus">Status:</p>
+        </div>
       </div>
 
       <div class="setlight">
-        <h2>Led light level</h2>
-        <p id="ledLightStatus">Status:</p>
-        <input type="text" id="lightLevel" name="fname" /><br /><br />
+        <h2>Set light level</h2>
+        <input autocomplete="off" autofocus name="fname" placeholder="% of light level..." type="text" id="lightLevel"/>
+        <br><br>
         <button type="button" onclick="changeStateLight();">Set value</button>
       </div>
-      
+
+      <footer>&#169; Greenhouse Project 2022. Developed by Lucas Saldanha & Michal Pupák.</footer>
     </div>
   </body>
 
