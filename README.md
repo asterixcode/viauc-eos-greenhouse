@@ -1,3 +1,23 @@
 # Embedded Operating System @ VIA UC
 
-## Greenhouse Project
+Greenhouse Project for BeagleBone Black
+
+## Technologies used
+
+- bash
+- c++
+- Node.js
+
+## How to run
+
+### 1. Install dependencies
+
+$ npm install
+
+### 2. Make sure the bash files are with executable permission
+
+$ chmod a+x getHeaterState.sh getLightIntensity.sh getWindowState.sh setHeaterState.sh setLightIntensity.sh setWindowState.sh
+
+### 3. Run the server with sudo permissions
+
+$ sudo node server.js
