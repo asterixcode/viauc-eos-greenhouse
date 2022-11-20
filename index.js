@@ -24,6 +24,26 @@ socket.on("getLightLevel", function (data) {
 
 socket.on("currentData", function (data) {
   console.log(data);
+  console.log(data[0]);
+  console.log(data[1]);
+  console.log(data[2]);
+  console.log(data[3]);
+
+  var tableContainer = document.getElementById("chartContainer");
+  var table = "<table class='table table-striped'><thead>";
+  table += '<tr><th scope="col">Time</th><th scope="col">Temperature</th><th scope="col">Humidity</th><th scope="col">Day Light</th></tr></thead><tbody>';
+  table +=
+    "<tr><td>" +
+    data[0] +
+    "</td><td>" +
+    data[1] +
+    "</td><td>" +
+    data[2] +
+    "</td><td>" +
+    data[3] +
+    "</td></tr>";
+  table += "</tbody></table>";
+  tableContainer.innerHTML = table;
 });
 
 function changeHeaterState(state) {

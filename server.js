@@ -60,7 +60,6 @@ function getHeaterState() {
     const heater = exec("./getHeaterState.sh");
     const jsonHeater = heater.toString("utf8");
     io.emit("getHeaterState", jsonHeater);
-    return jsonHeater;
   } catch (error) {
     console.log(error);
   }
@@ -71,7 +70,6 @@ function getWindowState() {
     const window = exec("./getWindowState.sh");
     const jsonWindow = window.toString("utf8");
     io.emit("getWindowState", jsonWindow);
-    return jsonWindow;
   } catch (error) {
     console.log(error);
   }
@@ -82,33 +80,35 @@ function getLightLevel() {
     const light = exec("sudo ./getLightLevel.sh");
     const jsonLight = light.toString("utf8");
     io.emit("getLightLevel", jsonLight);
-    return jsonLight;
   } catch (error) {
     console.log(error);
   }
 }
 
-// function getDaylight() {
-//   try {
-//     const daylight = exec("./getDaylight.sh");
-//     const jsonDaylight = daylight.toString("utf8");
-//     io.emit("getDaylight", jsonDaylight);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 function readData() {
     console.log("Calling readData()...");
-    // Get data from the sensors
-    const heater = getHeaterState();
-    const window = getWindowState();
-    const light = getLightLevel();
+    // get the current time
+    var date = new Date();
+    var time = date.toLocaleTimeString();
 
-    console.log("heater: " + heater);
-    console.log("window: " + window);
-    console.log("light: " + light);
-    const data = new Array(heater, window, light);
+    // Get data from the sensors
+    getHeaterState();
+    getWindowState();
+    getLightLevel();
+
+    // Read Temperature
+    const temp = exec("./readTempHum " + "temperature");
+    const jsonTemp = temp.toString("utf8");
+
+    // Read Humidity
+    const hum = exec("./readTempHum " + "humidity");
+    const jsonHum = hum.toString("utf8");
+
+    // Read Daylight
+    const daylight = exec("./getDaylight.sh");
+    const jsonDaylight = daylight.toString("utf8");
+
+    var data = [time, jsonTemp, jsonHum, jsonDaylight];
     console.log("data array: " + data);
     io.emit("currentData", data);
 }
