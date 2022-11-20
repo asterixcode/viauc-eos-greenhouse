@@ -72,26 +72,22 @@ function getData() {
     io.emit("getWindowState", jsonWindow);
 }
 
-// Change heater state when a button is pressed v1
-function handleChangeHeaterState(data) {
-    var newData = JSON.parse(data);
-    console.log("HEATER = " + newData.state);
-    // turns the HEATER ON or OFF
-    var change = exec("./setHeaterState.sh " + newData.state)
-}
-
 // Change window state when a button is pressed
 function handleChangeWindowState(data) {
     var newData = JSON.parse(data);
     console.log("WINDOW = " + newData.state);
     var change = exec("./setWindowState.sh " + newData.state)
+
+    getWindowState();
 }
 
+function getWindowState() {
+  const window = exec("./getWindowState.sh");
+  const jsonWindow = window.toString("utf8");
+  io.emit("getWindowState", jsonWindow);
+}
 
-
-
-
-// Change heater state when a button is pressed v2
+// Change heater state when a button is pressed
 function handleChangeHeaterState(data) {
     if (data == 1) {
         console.log("HEATER v2 = ON");
@@ -105,6 +101,7 @@ function handleChangeHeaterState(data) {
     }
     getHeater();
 }
+
 function getHeater() {
     const heater = exec("./getHeaterState.sh");
     const jsonHeater = heater.toString("utf8");
