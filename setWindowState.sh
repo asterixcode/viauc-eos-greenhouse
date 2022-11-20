@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 config-pin P9_21 pwm
 cd /sys/class/pwm/pwmchip1/

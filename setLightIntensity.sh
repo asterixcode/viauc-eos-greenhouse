@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 config-pin P9_22 pwm
 sh -c "echo 1 > export"
