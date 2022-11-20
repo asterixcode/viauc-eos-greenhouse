@@ -6,7 +6,6 @@ var ip = require('ip')
 var myip = ip.address()
 const exec = require('child_process').execSync;
 
-
 // Initialize the server on port 5050
 var server = http.createServer(function(req, res) {
     // requesting files
@@ -48,9 +47,10 @@ var io = require('socket.io')(server);
 io.on('connection', function (socket) {
     console.log("A user has connected...")
     
-    socket.on('getData', getData);
+    socket.on("requestData", readData);
     socket.on('changeHeaterState', handleChangeHeaterState);
     socket.on('changeWindowState', handleChangeWindowState);
+    socket.on("changeLightLevel", handleChangeLightLevel);
     
     socket.on('disconnect', () => {
         console.log('User disconnected.')
@@ -77,11 +77,35 @@ function getWindowState() {
     }
 }
 
-function getData() {
-  console.log("Calling getData()...");
+function getLightLevel() {
+    try {
+        const light = exec("sudo ./getLightLevel.sh");
+        const jsonLight = light.toString("utf8");
+        io.emit("getLightLevel", jsonLight);
+    } catch (error) {
+        console.log(error);
+    }
+} 
+
+// function getDaylight() {
+//   try {
+//     const daylight = exec("./getDaylight.sh");
+//     const jsonDaylight = daylight.toString("utf8");
+//     io.emit("getDaylight", jsonDaylight);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+function readData() {
+  console.log("Calling readData()...");
   // Get data from the sensors
-  getHeaterState();
-  getWindowState();
+  const heater = getHeaterState();
+  const window = getWindowState();
+  const light = getLightLevel();
+
+  const data = { heater, window, light };
+  io.emit("currentData", data);
 }
 
 // Change heater state when a button is pressed
@@ -109,6 +133,16 @@ function handleChangeWindowState(data) {
         const newData = JSON.parse(data);
         exec("./setWindowState.sh " + newData.state);
         getWindowState();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Change light state when a button is pressed
+function handleChangeLightLevel(data) {
+    try {
+        exec("sudo ./setLightLevel.sh " + data);
+        getLightLevel();
     } catch (error) {
         console.log(error);
     }

@@ -1,10 +1,10 @@
 // Establishing connection with server
 var socket = io.connect(); /* global io */
 
-function getData() {
-  socket.emit("getData", '{"state":"get"}');
+function requestData() {
+  socket.emit("requestData", '{"state":"get"}');
 }
-// var clock = setInterval(getData, 5000); // Get data every five second
+// var clock = setInterval(requestData, 5000); // Get data every five second
 
 socket.on("getHeaterState", function(data) {
   // Update the web page
@@ -17,6 +17,28 @@ socket.on("getHeaterState", function(data) {
 
 socket.on("getWindowState", function (data) {
   document.querySelector("#windowStatus").innerHTML = `Status: ${data.toUpperCase()}`;
+});
+
+socket.on("getLightLevel", function (data) {
+  document.querySelector("#lightStatus").innerHTML = `Current Level: ${data}`;
+});
+//   var slider = document.getElementById("lightSlider");
+//   var output = document.getElementById("lightValue");
+
+//   // output.innerHTML = slider.value;
+
+//   output.onchange = function() {
+//     slider.value = this.value;
+//   }
+//   output.innerHTML = data;
+
+//   // slider.oninput = function() {
+//   //   output.innerHTML = this.value;
+//   // }
+// });
+
+socket.on("currentData", function (data) {
+  console.log(data);
 });
 
 // Changes the heater state
@@ -35,10 +57,25 @@ function changeWindowState(state) {
 
 // wait until the DOM is loaded, then run the function
 document.addEventListener('DOMContentLoaded', function() {
-  getData(); // Get data from server
+  requestData(); // heater window lightlevel
+  
+  var slider = document.getElementById("lightSlider").value;
+  var output = document.getElementById("lightValue");
+  output.innerHTML = slider;
+});
+
+// listen to changes in the lightSlider value and set to lightValue
+document.getElementById("lightSlider").addEventListener("input", function() {
+  document.getElementById("lightValue").innerHTML = this.value;
 });
 
 
+// send the light level to the server
+document.getElementById("setNewLight").addEventListener("click", function() {
+  var value = document.getElementById("lightSlider").value;
+  console.log("Light level sent to server: " + value);
+  socket.emit("changeLightLevel", value);
+});
 
 
 // wait until the DOM is loaded, then run the function

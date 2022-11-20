@@ -1,5 +1,7 @@
 #!/bin/bash
 
-# raw volatage levels can be read from the following path according to the book
-cd /sys/bus/iio/devices/iio:device0
-cat in_voltage0_raw
+cd /sys/class/pwm/pwmchip1/
+cd pwm-1\:0
+value=$(<duty_cycle)
+result=$(($value/200000))
+echo $result
