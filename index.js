@@ -4,7 +4,7 @@ var socket = io.connect(); /* global io */
 function requestData() {
   socket.emit("requestData", '{"state":"get"}');
 }
-// var clock = setInterval(requestData, 5000); // Get data every five second
+var clock = setInterval(requestData, 1000); // Get data every five second
 
 socket.on("getHeaterState", function(data) {
   if (data == 1) {
@@ -32,6 +32,7 @@ socket.on("currentData", function (data) {
   var tableContainer = document.getElementById("chartContainer");
   var table = "<table class='table table-striped'><thead>";
   table += '<tr><th scope="col">Time</th><th scope="col">Temperature</th><th scope="col">Humidity</th><th scope="col">Day Light</th></tr></thead><tbody>';
+
   table +=
     "<tr><td>" +
     data[0] +
