@@ -57,53 +57,59 @@ io.on('connection', function (socket) {
     })
 });
 
-function getData() {
-    console.log("Calling getData()...");
-    // Get data from the sensors
-    var heater = exec("./getHeaterState.sh")
-    var window = exec("./getWindowState.sh")
-    
-    console.log("WINDOW = " + heater);
-    var jsonHeater = heater.toString("utf8");
-    var jsonWindow = window.toString("utf8");
-    console.log("WINDOW JSON = " + jsonWindow);
-    // Send data to the web page
-    io.emit("getHeaterState", jsonHeater);
-    io.emit("getWindowState", jsonWindow);
-}
-
-// Change window state when a button is pressed
-function handleChangeWindowState(data) {
-    var newData = JSON.parse(data);
-    console.log("WINDOW = " + newData.state);
-    var change = exec("./setWindowState.sh " + newData.state)
-
-    getWindowState();
+function getHeaterState() {
+    try {
+        const heater = exec("./getHeaterState.sh");
+        const jsonHeater = heater.toString("utf8");
+        io.emit("getHeaterState", jsonHeater);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function getWindowState() {
-  const window = exec("./getWindowState.sh");
-  const jsonWindow = window.toString("utf8");
-  io.emit("getWindowState", jsonWindow);
+    try {
+        const window = exec("./getWindowState.sh");
+        const jsonWindow = window.toString("utf8");
+        io.emit("getWindowState", jsonWindow);   
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function getData() {
+  console.log("Calling getData()...");
+  // Get data from the sensors
+  getHeaterState();
+  getWindowState();
 }
 
 // Change heater state when a button is pressed
 function handleChangeHeaterState(data) {
-    if (data == 1) {
-        console.log("HEATER v2 = ON");
-        // turns the HEATER ON
-        var on = exec("./setHeaterState.sh on")
+    try {
+        if (data == 1) {
+            console.log("HEATER v2 = ON");
+            // turns the HEATER ON
+            exec("./setHeaterState.sh on")
+        }
+        else { // data == 0
+            console.log("HEATER v2 = OFF");
+            // turns the HEATER OFF
+            exec("./setHeaterState.sh off")
+        }
+        getHeaterState();
+    } catch (error) {
+        console.log(error);
     }
-    else { // data == 0
-        console.log("HEATER v2 = OFF");
-        // turns the HEATER OFF
-        var off = exec("./setHeaterState.sh off")
-    }
-    getHeater();
 }
 
-function getHeater() {
-    const heater = exec("./getHeaterState.sh");
-    const jsonHeater = heater.toString("utf8");
-    io.emit("getHeaterState", jsonHeater);
+// Change window state when a button is pressed
+function handleChangeWindowState(data) {
+    try {
+        const newData = JSON.parse(data);
+        exec("./setWindowState.sh " + newData.state);
+        getWindowState();
+    } catch (error) {
+        console.log(error);
+    }
 }

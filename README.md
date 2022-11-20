@@ -16,7 +16,7 @@ $ npm install
 
 ### 2. Make sure the bash files are with executable permission
 
-$ chmod a+x getHeaterState.sh getLightIntensity.sh getWindowState.sh setHeaterState.sh setLightIntensity.sh setWindowState.sh
+$ chmod a+x getHeaterState.sh getLightLevel.sh getWindowState.sh setHeaterState.sh setLightLevel.sh setWindowState.sh
 
 ### 3. Run the server with sudo permissions
 

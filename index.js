@@ -16,7 +16,6 @@ socket.on("getHeaterState", function(data) {
 });
 
 socket.on("getWindowState", function (data) {
-  console.log("***WINDOW**** = " + data);
   document.querySelector("#windowStatus").innerHTML = `Status: ${data.toUpperCase()}`;
 });
 
@@ -38,6 +37,9 @@ function changeWindowState(state) {
 document.addEventListener('DOMContentLoaded', function() {
   getData(); // Get data from server
 });
+
+
+
 
 // wait until the DOM is loaded, then run the function
 // document.addEventListener('DOMContentLoaded', function() {
@@ -63,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //     };
 //   }
 // )});
-
-
 
 // // // wait until the DOM is loaded, then run the function
 // document.addEventListener('DOMContentLoaded', () => {
