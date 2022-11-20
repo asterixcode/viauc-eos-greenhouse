@@ -2,17 +2,22 @@ body {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 460px;
+    width: 520px;
     border: 3px solid rgb(80, 78, 77);
-    /* border-radius: 10px; */
     padding: 5px;
-
     background-color:rgb(0, 0, 0);
+    text-align: center;
   }
 
-.container {
-  text-align: center;
-  overflow: hidden;
+header {
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 10px;
+    text-align: center;
+}
+
+.main {
   padding: 10px;
   background-color: rgb(203, 203, 203);
 }

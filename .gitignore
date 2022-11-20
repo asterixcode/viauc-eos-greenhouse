@@ -5,3 +5,7 @@ package-lock.json
 # misc
 .DS_Store
 .vscode
+duty_cycle
+enable
+period
+export

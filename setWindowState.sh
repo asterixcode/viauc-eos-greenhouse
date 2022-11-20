@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Pin P9_21
 config-pin P9_21 pwm
 cd /sys/class/pwm/pwmchip1/
 cd pwm-1\:1
