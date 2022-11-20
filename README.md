@@ -21,23 +21,17 @@ Project developed as an assignment for Embedded Operating System course EOS1 @ V
 git clone https://github.com/asterixcode/viauc-eos-greenhouse.git
 ```
 
-</br>
-
 ## 2. Transfer via ssh/scp the following files to the BeagleBone Black (replace with your username)
 
 ```sh
 scp server.js index.html index.js styles.css getDaylight.sh getHeaterState.sh getLightLevel.sh getWindowState.sh setHeaterState.sh setLightLevel.sh setWindowState.sh build.sh hih8120Sensor.h hih8120Sensor.cpp I2CDevice.h I2CDevice.cpp main.cpp package.json username@beaglebone.local:~/greenhouse-project
 ```
 
-</br>
-
 ## 3. Set executable permissions on the following files:
 
 ```sh 
 sudo chmod a+x getHeaterState.sh getLightLevel.sh getWindowState.sh setHeaterState.sh setLightLevel.sh setWindowState.sh build.sh
 ```
-
-</br>
 
 ## 4. Install dependencies
 
@@ -53,15 +47,11 @@ npm install
 ./build.sh
 ```
 
-</br>
-
 ## 6. Run the server with sudo permissions
 
 ```sh
 sudo node server.js
 ```
-
-</br>
 
 # Features implemented
 
