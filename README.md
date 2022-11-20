@@ -39,8 +39,6 @@ sudo chmod a+x getHeaterState.sh getLightLevel.sh getWindowState.sh setHeaterSta
 npm install
 ```
 
-</br>
-
 ## 5. Compile the c++ code
 
 ```sh
