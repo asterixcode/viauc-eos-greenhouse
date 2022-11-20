@@ -7,8 +7,6 @@
   "author": "Lucas Krause Saldanha",
   "license": "",
   "dependencies": {
-    "bonescript": "^0.7.4-beta1",
-    "express": "^4.18.2",
     "ip": "^1.1.8",
     "socket.io": "^4.5.3"
   }
