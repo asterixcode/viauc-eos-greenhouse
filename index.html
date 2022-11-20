@@ -44,29 +44,30 @@
         <h3>Set new light level</h3>
         <input type="range" min="0" max="100" value="50" class="slider" id="lightSlider" />
         <h4 id="lightValue"></h4>
-        <button type="button" id="setNewLight">SET</button>
+        <button type="button" id="setNewLight">SET VALUE</button>
       </div>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Time</th>
-            <th scope="col">Temperature</th>
-            <th scope="col">Humidity</th>
-            <th scope="col">Day Light</th>
-          </tr>
-        </thead>
-        <!-- <tbody id="data"> -->
-        <tbody>
-          <tr>
-            <td>12:00</td>
-            <td>20</td>
-            <td>50</td>
-            <td>250</td>
-          </tr>
-        </tbody>
-      </table>
-
+      <div id="chartContainer">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Temperature</th>
+              <th scope="col">Humidity</th>
+              <th scope="col">Day Light</th>
+            </tr>
+          </thead>
+          <!-- <tbody id="data"> -->
+          <tbody>
+            <tr>
+              <td>12:00</td>
+              <td>20</td>
+              <td>50</td>
+              <td>250</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <footer>
         &#169; Greenhouse Project 2022. Developed by Lucas Saldanha & Michal
