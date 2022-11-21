@@ -119,12 +119,14 @@ function handleChangeHeaterState(data) {
     if (data == 1) {
       console.log("HEATER v2 = ON");
       // turns the HEATER ON
-      exec("./setHeaterState.sh on");
+      // exec("./setHeaterState.sh on");
+      exec("./control-leds.sh on");
     } else {
       // data == 0
       console.log("HEATER v2 = OFF");
       // turns the HEATER OFF
-      exec("./setHeaterState.sh off");
+      // exec("./setHeaterState.sh off");
+      exec("./control-leds.sh off");
     }
     getHeaterState();
   } catch (error) {
