@@ -6,13 +6,14 @@ int main(int argc, char **argv) {
     
     //Logical decision to measure either temperature or humidity based on the 1st argument
     if (std::string(argv[1]) == "temperature") {
-        hih8120Sensor.readTemperature();
-        std::cout << hih8120Sensor.temperature << std::endl; 
+        hih8120Sensor.readTemperature(); //call the sensor to read the temperature
+        std::cout << hih8120Sensor.temperature << std::endl; //print the new temperature reading for server to access the value
     }
     else if (std::string(argv[1]) == "humidity") {
-        hih8120Sensor.readHumidity();
-        std::cout << hih8120Sensor.humidity << std::endl;
+        hih8120Sensor.readHumidity(); //call the sensor to read the humidity
+        std::cout << hih8120Sensor.humidity << std::endl; //print the new humidity reading for server to access the value
     }
+    //Any other argument will display an error message
     else {
         std::cout << "Argument error" << std::endl;
         return 2;
