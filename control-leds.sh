@@ -3,7 +3,7 @@
 if [ ! "on" == "$1" ] && [ ! "off" == "$1" ]
   then 
     echo
-    echo "ERROR: Invalid second argument. Valid values: on or off."
+    echo "ERROR: Invalid argument. Valid values: on or off."
     echo
     exit 1
 fi
