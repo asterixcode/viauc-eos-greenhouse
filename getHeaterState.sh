@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Michal Pupak - 299128
+# Date: 27.11.22
+
 # P9_23 GPIO_49
 # echo $(cat /sys/class/gpio/gpio49/value)
 

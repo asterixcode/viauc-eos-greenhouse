@@ -1,3 +1,6 @@
+// Author: Michal Pupak - 299128
+// Date: 27.11.22
+
 #include "I2CDevice.h"
 
 namespace hih8120Sensor {

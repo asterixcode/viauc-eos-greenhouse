@@ -1,4 +1,6 @@
 #!/bin/bash
+# Author: Michal Pupak - 299128
+# Date: 27.11.22
 
 if [[ ! -e /sys/class/gpio/gpio49 ]]
     then

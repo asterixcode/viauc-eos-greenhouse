@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Michal Pupak - 299128
+# Date: 27.11.22
+
 #Pin P9_21
 config-pin P9_21 pwm
 cd /sys/class/pwm/pwmchip1/
