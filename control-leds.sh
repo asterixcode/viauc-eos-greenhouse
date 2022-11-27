@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Michal Pupak - 299128
+# Date: 27.11.22
+
 if [ ! "on" == "$1" ] && [ ! "off" == "$1" ]
   then 
     echo
