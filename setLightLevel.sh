@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Michal Pupak - 299128
+# Date: 27.11.22
+
 config-pin P9_22 pwm
 sh -c "echo 1 > export"
 cycle=$((200000 * $1))
