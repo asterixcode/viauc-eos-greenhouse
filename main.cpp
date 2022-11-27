@@ -1,3 +1,6 @@
+// Author: Michal Pupak - 299128
+// Date: 27.11.22
+
 #include <iostream>
 #include "hih8120Sensor.h"
 
