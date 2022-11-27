@@ -4,7 +4,7 @@ var socket = io.connect(); /* global io */
 function requestData() {
   socket.emit("requestData", '{"state":"get"}');
 }
-var clock = setInterval(requestData, 1000); // Get data every five second
+var clock = setInterval(requestData, 1000); // Get data every second
 
 socket.on("getHeaterState", function(data) {
   if (data == 1) {
